@@ -1,1 +1,58 @@
-<h1>ここはTopページです</h1>
+<div class = "container mt-3">
+  <div class="row">
+    <div class = "col-3" >
+
+      <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ジャンル</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%# @genres.each do |genre| %>
+    <tr>
+      <th>
+      <%#= genre.name %>
+      </th>
+    </tr>
+    <%# end %>
+  </tbody>
+  </table>
+ </div>
+
+
+    <div class="col-9">
+
+      <p class="font-weight-bold">ようこそ！</p><br>
+      <p class="font-weight-bold">このサイトは、ハンドメイドアクセサリー専門で売買するサイトになります。</p><br>
+      <p class="font-weight-bold">会員ではない方も商品の閲覧はできますが、</p><br>
+      <p class="font-weight-bold">購入には会員登録が必要になります。</p><br />
+      <p class="font-weight-bold">自分の作り出した作品を自由に売買して楽しんでくださいね！</p><br />
+
+
+      <h1>新着商品</h1>
+
+        <div class = 'row mt-4'>
+          <%# @items.each do |item| %>
+            <div class = 'col-3'>
+              <td><%#= link_to item_path(item.id) do %>
+                <%#= image_tag item.get_image(100,100) %>
+              <%# end %>
+              </td><br>
+              <td><%#= link_to item_path(item.id) do %>
+                <%#= item.name %>
+              </td><br>
+              <%# end %>
+              ¥<%#= item.price %>
+            </div>
+          <%# end %>
+        </div>
+        <%#= link_to "全ての商品を見る>", items_path,class: 'nav-link text-right' %>
+
+
+
+
+    </div>
+  </div>
+</div>

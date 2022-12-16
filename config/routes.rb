@@ -1,6 +1,7 @@
 
 
 Rails.application.routes.draw do
+  get 'confimations/new'
   devise_for :customers, controllers: {
     registrations: 'customers/registrations',
     sessions: 'customers/sessions'
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
   get 'customers/edit'
 
   get 'homes/top'
+  get 'homes/about'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
