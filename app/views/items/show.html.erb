@@ -1,52 +1,55 @@
 <h1>Items#show</h1>
 <p>Find me in app/views/items/show.html.erb</p>
 
-<div class = "container mt-3">
-  <div class="row">
+<h1>商品詳細</h1>
 
-    <div class = "col-3" >
-
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">ジャンル</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @genres.each do |genre| %>
-            <tr>
-              <th>
-                <%= genre.name %>
-              </th>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
-
-
-      <div class="col-9">
-        <h2>商品一覧
-          (全<%= @items.count %>件）
-        </h2>
-<div class = "row">
-          <% @items.each do |item| %>
-            <div class = 'col-3'>
-              <td><%= link_to item_path(item.id) do %>
-                <%= image_tag item.get_image(100,100) %>
-                <% end %>
-              </td><br>
-              <td><%= link_to item_path(item.id) do %></td>
-              <%= item.name %>
-            <% end %>
-            <br>
-            ¥<%= item.price %>
-            </div>
-        <% end %>
-      </div>
-      <%= paginate @items %>
-</div>
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag @item.get_image(350,300) %>
   </div>
+
+
+<div class="col-md-8">
+<table class="table table-borderless">
+  <tr>
+    <th>商品名</th>
+    <th><%= @item.name %></th>
+  </tr><br>
+  <tr>
+    <th>商品説明</th>
+    <th><%= @item.description %></th>
+  </tr>
+  <tr>
+    <th>ジャンル</th>
+    <th><%= @item.genre.name %></th>
+  </tr>
+  <tr>
+    <th>税抜価格</th>
+    <th><%= @item.price %>円</th>
+  </tr>
+  <tr>
+    <th>税込価格</th>
+    <th><%= @item.add_tax_price.to_s(:dalimited) %>円</th>
+  </tr>
+  <tr>
+    <th>販売ステータス</th>
+    <th><%= @item.is_active ? '販売中' : '販売停止中' %></th>
+  </tr>
+
+  <th><%= link_to "編集する", edit_item_path(@item.id), class: "btn btn-success" %></th>
+</table>
+
+
+<%= form_with model: @cart_item, url: cart_items_path,method: :post do |f| %>
+
+  <%#= f.select :amount, *[1..10] %>
+
+  <%#= f.hidden_field :item_id, :value => @item.id %>
+
+  <%= f.submit "カートに入れる", class: "btn btn-sm btn-success" %>
+
+  <% end %>
+
+
+</div>
 </div>

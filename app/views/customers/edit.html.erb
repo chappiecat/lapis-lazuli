@@ -3,7 +3,7 @@
 
 <h1>会員情報編集</h1>
 
-<%= form_with model: @customer, url: customers_infomation_path,method: :patch do |f| %>
+<%= form_with model: @customer, url: customer_path,method: :patch do |f| %>
    <div class="form-group row" >
     <%= f.label "氏名",class: "col-md-2" %>
     <%= f.text_field :last_name, class: 'form-control customer-last_name col-md-3' %>
@@ -37,3 +37,16 @@
     <%= f.text_field :phone, class: 'form-control customer-phone col-md-3 ml-3' %>
   </div>
 
+
+ <div class="form-group row">
+    <%= f.label :email, "メールアドレス",class: "col-md-2" %>
+    <%= f.text_field :email, class: 'form-control customer-email col-md-3 ml-3' %>
+  </div>
+
+  <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+
+  <%= link_to "退会する", customer_unsubscribe_path(current_customer), method: :delete, class: "btn btn-danger" %>
+
+
+
+<% end %>

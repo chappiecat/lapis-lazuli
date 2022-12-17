@@ -14,3 +14,18 @@
     first_name: "taro"
   )
 end
+
+
+Genre.create(id:1,name:'ピアス')
+Genre.create(id:2,name:'イヤリング')
+Genre.create(id:3,name:'ヘアゴム')
+Genre.create(id:4,name:'シュシュ')
+Genre.create(id:5,name:'リング')
+Genre.create(id:6,name:'ブレスレット')
+Genre.create(id:7,name:'アンクレット')
+Genre.create(id:8,name:'その他')
+
+
+
+
+

@@ -1,12 +1,16 @@
 class HomesController < ApplicationController
 
   def top
+    @genres = @genres = Genre.all
+    
+    
+  end
     # @items = Item.all.order('id DESC').limit(4)
     # @genres = Genre.all
     # ASCだと古い順でDESCで新着順
-  end
 
   def about
+    @genres = @genres = Genre.all
   end
 
    private

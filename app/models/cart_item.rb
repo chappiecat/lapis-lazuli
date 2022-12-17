@@ -19,4 +19,4 @@ class CartItem < ApplicationRecord
 end
 
 
-end
+

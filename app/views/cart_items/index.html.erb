@@ -3,7 +3,7 @@
 
 <h1>ショッピングカート</h1>
 
-<%= link_to "カートを空にする", destroy_all_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger mb-2" %>
+<%= link_to "カートを空にする", cart_items_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger mb-2" %>
 
  <table class="table table-bordered">
    <thead>
