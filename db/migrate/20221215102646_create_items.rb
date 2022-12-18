@@ -9,6 +9,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.integer :price
       t.boolean :is_active, null: false, default: true
       t.integer :genre_id
+      t.integer :customer_id
 
     end
   end

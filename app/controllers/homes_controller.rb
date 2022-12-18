@@ -1,12 +1,19 @@
 class HomesController < ApplicationController
 
   def top
-    @genres = @genres = Genre.all
-    
-    
+    @items = Item.order('id DESC').limit(5)
+    #@genres = Genre.all
+    #@genres = @genres = Genre.all
+     if params[:genre_id]
+      genre = Genre.find(params[:genre_id])
+      @items = genre.items
+    else
+      @items = Item.all
+    end
+    @genres = Genre.all
+
   end
-    # @items = Item.all.order('id DESC').limit(4)
-    # @genres = Genre.all
+
     # ASCだと古い順でDESCで新着順
 
   def about

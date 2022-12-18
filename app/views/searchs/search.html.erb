@@ -1,0 +1,4 @@
+<%# if @model == 'customer' %>
+  <h3>【検索結果】：<%= @content %></h3>
+  <%= render 'items/index', items: @records %>
+<%# end %>

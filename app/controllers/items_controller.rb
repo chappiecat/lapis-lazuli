@@ -2,12 +2,17 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    #@genres = Genre.all
+    @genres = Genre.all
   end
 
 
   def index
-    @items = Item.all
+    if params[:genre_id]
+      genre = Genre.find(params[:genre_id])
+      @items = genre.items
+    else
+      @items = Item.all
+    end
     @genres = Genre.all
   end
 
@@ -15,17 +20,19 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @cart_item =CartItem.new
-    #@genres = Genre.all
+    @genres = Genre.all
+   #@genres.item.name = Genre.new
   end
 
 
   def edit
     @item = Item.find(params[:id])
-    #@genres = Genre.all
+    @genres = Genre.all
   end
 
   def create
     @item = Item.new(item_params)
+    @item.customer_id = current_customer.id
     @item.save!
     redirect_to items_path(@item.id)
   end

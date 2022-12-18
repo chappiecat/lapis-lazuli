@@ -13,7 +13,7 @@
     <% @genres.each do |genre| %>
     <tr>
       <th>
-      <%= genre.name %>
+      <%= link_to genre.name, items_path(genre_id: genre.id) %>
       </th>
     </tr>
     <% end %>
@@ -23,6 +23,8 @@
 
 
     <div class="col-9">
+
+      <%#= background_image_tag('neko.jpg', :size =>'300x120') %>
 
       <p class="font-weight-bold">ようこそ！</p><br>
       <p class="font-weight-bold">このサイトは、ハンドメイドアクセサリー専門で売買するサイトになります。</p><br>
@@ -34,21 +36,21 @@
       <h1>新着商品</h1>
 
         <div class = 'row mt-4'>
-          <%# @items.each do |item| %>
+          <% @items.each do |item| %>
             <div class = 'col-3'>
-              <td><%#= link_to item_path(item.id) do %>
-                <%#= image_tag item.get_image(100,100) %>
-              <%# end %>
+              <td><%= link_to item_path(item.id) do %>
+                <%= image_tag item.get_image(100,100) %>
+              <% end %>
               </td><br>
-              <td><%#= link_to item_path(item.id) do %>
-                <%#= item.name %>
+              <td><%= link_to item_path(item.id) do %>
+                <%= item.name %>
               </td><br>
-              <%# end %>
-              ¥<%#= item.price %>
+              <% end %>
+              ¥<%= item.price %>
             </div>
-          <%# end %>
+          <% end %>
         </div>
-        <%#= link_to "全ての商品を見る>", items_path,class: 'nav-link text-right' %>
+        <%= link_to "全ての商品を見る>", items_path,class: 'nav-link text-right' %>
 
 
 

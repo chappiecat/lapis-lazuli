@@ -1,11 +1,9 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
 
 <div class = "container ml-auto">
 
 <h1>商品編集</h1>
 
-<%= form_with model: @item, url: admin_item_path,method: :patch do |f| %>
+<%= form_with model: @item, url: item_path(@item.id),method: :patch do |f| %>
 
   <div class="form-group row">
     <div class="col-md-2"></div>
@@ -32,7 +30,7 @@
 <div class="form-group row">
   <div class="col-md-2"></div>
     <%= f.label "ジャンル",class: "col-md-3" %>
-    <%= f.select :genre_id, @genres, {prompt: "選択してください"}, :class => 'form-control col-md-3 ml-3', :id => 'genre_id' %>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name) %>
   </div>
 
 

@@ -78,11 +78,11 @@
         </div>
 
 
-        <!--<div>-->
-          <%#= link_to items_path,class: 'nav-link text-light' do  %>
-            <!--<button type="button" class="btn btn-light btn-sm mr-3">商品一覧</button>-->
-          <%# end %>
-        <!--</div>-->
+        <div>
+          <%= link_to items_path,class: 'nav-link text-light' do  %>
+            <button type="button" class="btn btn-light btn-sm mr-3">商品一覧</button>
+          <% end %>
+        </div>
 
 
 
@@ -103,8 +103,9 @@
       </div>
       </div>
         <div class="mr-1">
-          <%= text_field_tag :search %>
-          <%= submit_tag 'Search', :name => nil %>
+          <%#= text_field_tag :search %>
+          <%#= submit_tag 'Search', :name => nil %>
+          <%= render 'searchs/form' %>
         </div>
     </nav>
   </header>

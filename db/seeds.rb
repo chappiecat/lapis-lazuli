@@ -6,24 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-(1..5).each do |n|
-  Customer.create!(
-    email: "test#{n}@test.com",
-    password: "password",
-    last_name: "test#{n}",
-    first_name: "taro"
-  )
-end
+# (1..5).each do |n|
+#   Customer.create!(
+#    email: "test#{n}@test.com",
+#    password: "password",
+#    last_name: "test#{n}",
+#    first_name: "taro"
+#  )
+#end
 
 
-Genre.create(id:1,name:'ピアス')
-Genre.create(id:2,name:'イヤリング')
-Genre.create(id:3,name:'ヘアゴム')
-Genre.create(id:4,name:'シュシュ')
-Genre.create(id:5,name:'リング')
-Genre.create(id:6,name:'ブレスレット')
-Genre.create(id:7,name:'アンクレット')
-Genre.create(id:8,name:'その他')
+Genre.find_or_create_by(name:'ピアス')
+Genre.find_or_create_by(name:'イヤリング')
+Genre.find_or_create_by(name:'ネックレス')
+Genre.find_or_create_by(name:'ヘアゴム')
+Genre.find_or_create_by(name:'シュシュ')
+Genre.find_or_create_by(name:'リング')
+Genre.find_or_create_by(name:'ブレスレット')
+Genre.find_or_create_by(name:'アンクレット')
+Genre.find_or_create_by(name:'その他')
 
 
 
