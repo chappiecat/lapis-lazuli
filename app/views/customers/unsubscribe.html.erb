@@ -11,9 +11,9 @@
         退会する場合は、「退会する」をクリックしてください。
       </h4>
 
-      <%= link_to "退会する", customers_withdraw_path, method: :patch, class: "btn btn-danger mt-4 mb-3" %>
+      <%= link_to "退会する", customer_unsubscribe_path, method: :patch, class: "btn btn-danger mt-4 mb-3" %>
 
-      <%= link_to "退会しない", customer_path, class: "btn btn-primary mt-4 mb-3" %>
+      <%= link_to "退会しない", root_path, class: "btn btn-primary mt-4 mb-3" %>
     </div>
   </div>
 </div>

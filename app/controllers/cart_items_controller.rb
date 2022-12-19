@@ -43,7 +43,7 @@ class CartItemsController < ApplicationController
                   #元々カート内にあるもの「item_id」
                   #今追加した                       params[:cart_item][:item_id])
         cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
-        cart_item.amount += params[:cart_item][:amount].to_i
+        #cart_item.amount += params[:cart_item][:amount].to_i
        #cart_item.amountに今追加したparams[:cart_item][:amount]を加える
                                                       #.to_iとして数字として扱う
         cart_item.save
@@ -63,7 +63,7 @@ class CartItemsController < ApplicationController
   private
 
   def cart_item_params
-    #params.require(:cart_item).permit(:customer_id, :item_id, :amount)
+    params.require(:cart_item).permit(:customer_id, :item_id, :amount)
   end
 
 end

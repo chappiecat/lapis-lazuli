@@ -13,7 +13,14 @@ root 'homes#top'
 
  resources :items
  resources :addresses, only: [:index, :create, :destroy, :edit, :update]
- resources :orders, only: [:new, :check, :complete, :create, :show, :index]
+ resources :orders, only: [:new, :create, :show, :index] do
+   collection do
+     post :check
+     get :complete
+   end
+ end
+
+
  delete 'cart_items',to: 'cart_items#destroy_all'
  resources :cart_items, only: [:index, :destroy, :create, :update]
  resources :sessions, only: [:new, :create, :destroy]

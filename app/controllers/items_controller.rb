@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @cart_item =CartItem.new
     @genres = Genre.all
-   #@genres.item.name = Genre.new
+    #@genres.item.name = Genre.new
   end
 
 
