@@ -28,6 +28,10 @@ class CustomersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+  
+  def items
+    @items = current_customer.items
+  end
 
   private
 

@@ -10,12 +10,12 @@ root 'homes#top'
  get 'top' =>'homes#top'
  get 'about' =>'homes#about'
  get '/search', to: 'searchs#search'
+ get "orders/check" => "orders#check"
 
  resources :items
  resources :addresses, only: [:index, :create, :destroy, :edit, :update]
  resources :orders, only: [:new, :create, :show, :index] do
    collection do
-     post :check
      get :complete
    end
  end
@@ -26,7 +26,9 @@ root 'homes#top'
  resources :sessions, only: [:new, :create, :destroy]
  resources :registrations, only: [:create]
  resources :customers do
-     delete 'unsubscribe'
+     get 'unsubscribe'
+     delete 'withdraw'
+     get "items"
  end
  #resources :homes, only: [:top, :about]
 

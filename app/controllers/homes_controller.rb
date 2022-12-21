@@ -1,14 +1,14 @@
 class HomesController < ApplicationController
 
   def top
-    @items = Item.order('id DESC').limit(4)
+   
     #@genres = Genre.all
     #@genres = @genres = Genre.all
      if params[:genre_id]
       genre = Genre.find(params[:genre_id])
       @items = genre.items
     else
-      @items = Item.all
+       @items = Item.order('id DESC').limit(4) 
     end
     @genres = Genre.all
 
