@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   enum status: { wait: 0, confilm: 1, making: 2, preparation: 3, shipped: 4 }
 
   def subtotal
-    item.add_tax_price * amount
+    #items.add_tax_price
   end
 
 

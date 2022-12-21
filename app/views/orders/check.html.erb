@@ -2,7 +2,7 @@
 <div "container">
   <div class='row mb-3'>
     <div class='col-8 offset-1'>
-      <h4>注文情報確認</h4>
+      <h1>注文情報確認</h1>
     </div>
   </div>
 
@@ -18,11 +18,14 @@
         <% total = 0 %>
         <% @cart_items.each do |cart_item| %>
           <tr>
+
             <td>
               <%= image_tag cart_item.item.get_image(100,100) %>
               <%= cart_item.item.name %>
             </td>
+
             <td><%= cart_item.item.price %>円</td>
+
             <td><%= (cart_item.item.price*1.10).to_i %>円</td>
 
               <%# subtotal = ((cart_item.item.price*cart_item.amount)*1.10).to_i %>

@@ -15,7 +15,6 @@
 
     <th>支払方法</th>
 
-    <th>ステータス</th>
   </tr>
   </thead>
 
@@ -26,12 +25,49 @@
 
       <td><%= @order.address %></td>
 
-      <td><%= @order.payment_method_i18n %></td>
+      <td><%= @order.payment_method %></td>
 
-      <td><%= @order.status_i18n %></td>
     </tr>
   </tbody>
   </table>
+
+
+
+
+
+  <h3>注文内容</h3>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>商品</th>
+
+        <th>単価</th>
+
+        <th>小計</th>
+      </tr>
+    </thead>
+
+
+<tbody>
+
+<% @ordered_items.each do |ordered_item| %>
+
+    <tr>
+      <td><%= ordered_item.item.name %></td>
+
+      <td><%= ordered_item.item.price %>円</td>
+
+      <td><%= (ordered_item.item.price*1.10).to_i %>円</td>
+
+   </tr>
+
+<% end %>
+    </tbody>
+</table>
+
+
+
 
 
 
@@ -51,57 +87,18 @@
 
   <tbody>
     <tr>
-      <td><%= @total.to_i %></td>
+      <td><%= @order.total_payment %>円</td>
 
-      <% @order.shipping_cost = 800 %>
-      <td><%= @order.shipping_cost %></td>
+      <% @order.shipping_cost = 200 %>
+      <td><%= @order.shipping_cost %>円</td>
 
-      <% @order.total_payment = @order.shipping_cost + @total.to_i %>
-      <td><%= @order.total_payment %></td>
+      <% @order.total_payment = @order.shipping_cost + @total_payment.to_i %>
+      <td><%= @order.total_payment %>円</td>
     </tr>
   </tbody>
 </table>
 
+<%= link_to "注文履歴リストに戻る", orders_path(@order), class: "btn btn-success mb-2" %>
+
 </div>
-
-
-
-
-<h3>注文内容</h3>
-
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>商品</th>
-
-        <th>単価(税込)</th>
-
-        <th>個数</th>
-
-        <th>小計</th>
-      </tr>
-    </thead>
-
-
-<tbody>
-
-<% @ordered_items.each do |ordered_item| %>
-
-    <tr>
-      <td><%= ordered_item.item.name %></td>
-
-      <td><%= ordered_item.price %></td>
-
-      <td><%= ordered_item.amount %></td>
-
-      <% subtotal = (ordered_item.price*ordered_item.amount).to_i %>
-      <td><%= subtotal %></td>
-
-   </tr>
-
-<% end %>
-
-    </tbody>
-
-</table>
 

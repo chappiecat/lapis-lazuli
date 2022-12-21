@@ -11,7 +11,6 @@
         <th>配送先</th>
         <th>注文商品</th>
         <th>支払金額</th>
-        <th>ステータス</th>
         <th>注文詳細</th>
       </tr>
     </thead>
@@ -20,18 +19,24 @@
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+
       <td><%= order.address %></td>
+
       <td>
         <% order.ordered_items.each do |ordered_item| %>
           <%= ordered_item.item.name %><br>
         <% end %>
       </td>
-      <td><%= order.total_payment %></td>
-      <td><%= order.status_i18n %></td>
+
+      <td><%= order.total_payment %>円</td>
+
       <td><%= link_to "表示する", order_path(order.id), class: "btn btn-sm btn-success mr-3" %></td>
     </tr>
   <% end %>
 </tbody>
 
 </table>
+
+<%#= link_to "マイページに戻る", customer_path(@customer), class: "btn btn-success mb-4 ml-3" %>
+
 </div>

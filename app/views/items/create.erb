@@ -1,0 +1,51 @@
+
+<div class="container">
+
+
+<h1>出品商品リスト</h1>
+
+<th><%= link_to "出品商品リスト編集", edit_item_path(@item), class: "btn btn-success mb-2" %></th><br>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>商品画像</th>
+        <th>商品名</th>
+        <th>商品説明</th>
+        <th>ジャンル</th>
+        <th>税抜価格</th>
+        <th>販売ステータス</th>
+      </tr>
+    </thead>
+
+<tbody>
+<% @items.each do |item| %>
+
+    <tr>
+      <td><%= item.image.id %></td>
+
+      <td>
+      <%= link_to items_path(item.id) do %>
+      <%= item.name %>
+      <% end %>
+      </td>
+
+      <td><%= item.description %></td>
+
+      <td><%= item.genre.id %></td>
+
+      <td><%= item.price %></td>
+
+      <td><%= item.genre %></td>
+
+      <td><%= item.states %></td>
+
+   </tr>
+<% end %>
+
+    </tbody>
+
+</table>
+
+</div
