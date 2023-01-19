@@ -23,5 +23,7 @@ module LapisLazuli
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.hosts << "f2b583ed78da4bd1be381550c729cdd2.vfs.cloud9.ap-northeast-1.amazonaws.com"
   end
 end
